@@ -3,9 +3,9 @@ const path = require('path');  // node.js에서 경로 쉽게 쓸수 있게 해�
 module.exports = {
     name : 'gugudan_webpack',
     mode : 'development', //실서비스 : production
-    devtool : 'eval', // 그냥 빠르게 하겠다는거
+    devtool : 'eval', // 그냥 빠르게 하겠다는거, 실서비스 : hidden-source-map
     resolve : {
-        extensions : ['.js','.jsx']
+        extensions : ['.js','.jsx']  // 이거해놓으면 entry에서 확장자 생략할 수 있음
     },
 
     entry: {

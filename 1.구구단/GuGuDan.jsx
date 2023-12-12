@@ -1,19 +1,20 @@
 const React = require('react');
 const ReactDom = require('react-dom')
+const { useState, useRef } = React;
 
 
 
-      function GuGuDan()  {
+const GuGuDan=() => {
         console.log("렌더링");
-        const [first, setFirst] = React.useState(Math.ceil(Math.random() * 9));
-        const [second, setSecond] = React.useState(
+        const [first, setFirst] = useState(Math.ceil(Math.random() * 9));
+        const [second, setSecond] = useState(
           Math.ceil(Math.random() * 9)
         );
-        const [value, setValue] = React.useState("");
-        const [result, setResult] = React.useState("");
-        const focusTest = React.useRef(null);
+        const [value, setValue] = useState("");
+        const [result, setResult] = useState("");
+        const focusTest = useRef(null);
         return (
-          <div>
+          <>
             <div>
               {first} x {second} 는?
             </div>
@@ -49,8 +50,8 @@ const ReactDom = require('react-dom')
               <button>입력!</button>
             </form>
             <div>{result}</div>
-          </div>
+            </>
         );
       }
 
-     export {GuGuDan}
+   export default GuGuDan
