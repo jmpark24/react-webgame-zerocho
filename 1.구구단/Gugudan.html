@@ -19,32 +19,42 @@
     <script type="text/babel">
       "use strict";
       function GuGuDan() {
+        console.log("렌더링");
         const [first, setFirst] = React.useState(Math.ceil(Math.random() * 9));
         const [second, setSecond] = React.useState(
           Math.ceil(Math.random() * 9)
         );
         const [value, setValue] = React.useState("");
         const [result, setResult] = React.useState("");
+        const focusTest = React.useRef(null);
         return (
           <div>
             <div>
-              {first}곱하기{second}는?
+              {first} x {second} 는?
             </div>
             <form
               onSubmit={(event) => {
                 event.preventDefault();
+
                 if (parseInt(value) === first * second) {
-                  setResult("정답!");
+                  setResult(() => {
+                    if (value) {
+                      return first + " x " + second + " = " + value + " 정답! ";
+                    }
+                  });
                   setFirst(Math.ceil(Math.random() * 9));
                   setSecond(Math.ceil(Math.random() * 9));
                   setValue("");
+                  focusTest.current.focus();
                 } else {
                   setResult("땡!");
                   setValue("");
+                  focusTest.current.focus();
                 }
               }}
             >
               <input
+                ref={focusTest}
                 type="number"
                 value={value}
                 onChange={(event) => {
@@ -59,7 +69,12 @@
       }
     </script>
     <script type="text/babel">
-      ReactDOM.render(<GuGuDan />, document.querySelector("#root"));
+      ReactDOM.render(
+        <React.Fragment>
+          <GuGuDan />
+        </React.Fragment>,
+        document.querySelector("#root")
+      );
     </script>
   </body>
 </html>
