@@ -1,7 +1,7 @@
 const React = require('react');
 const ReactDom = require('react-dom');
 
-const GuGuDan = require('./GuGuDan') ;
+import { GuGuDan } from './GuGuDan'
 
 
 ReactDom.render(<GuGuDan />, document.querySelector("#root"));

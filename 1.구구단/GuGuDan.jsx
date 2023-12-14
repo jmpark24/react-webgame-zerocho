@@ -4,7 +4,7 @@ const { useState, useRef } = React;
 
 
 
-const GuGuDan=() => {
+const GuGuDan=()=>  {
         console.log("렌더링");
         const [first, setFirst] = useState(Math.ceil(Math.random() * 9));
         const [second, setSecond] = useState(
@@ -54,4 +54,4 @@ const GuGuDan=() => {
         );
       }
 
-   export default GuGuDan
+      export  {GuGuDan}
