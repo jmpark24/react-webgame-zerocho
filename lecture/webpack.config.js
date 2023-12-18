@@ -4,7 +4,7 @@ const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
 const RefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 module.exports = {
-    name : 'wordrelay-setting',
+    name : 'tictactoe-dev',
     mode : 'development', //실서비스 : production
     devtool : 'eval', // 그냥 빠르게 하겠다는거
     resolve : {
